@@ -25,9 +25,9 @@
         <!-- MENU -->
         <div class="app-header__menu">
             <nav>
-                <a href="<c:url value="accueil"/>">Accueil</a>
-                <a href="<c:url value="aLaffiche"/>">A l'affiche </a>
-                <a href="<c:url value="infosPratiques"/>">Infos Pratiques </a>
+                <a href="<c:url value="home"/>">Accueil</a>
+                <a href="<c:url value="onDisplay"/>">A l'affiche </a>
+                <a href="<c:url value="infos"/>">Infos Pratiques </a>
                 <a href="<c:url value="quizz"/>">Quizz </a>
                 <a href="<c:url value="contacts"/>">Contacts </a>
             </nav>
@@ -35,8 +35,8 @@
     
         <!-- CONNEXIONS -->
         <div class="app-header__compte">
-            <a href="<c:url value="monCompte"/>">Mon compte </a>
-            <a href="<c:url value="espacePro"/>">Espace Pro </a>
+            <a href="<c:url value="myAccount"/>">Mon compte </a>
+            <a href="<c:url value="professionalSpace"/>">Espace Pro </a>
         </div>
     
     </header>

@@ -1,19 +1,19 @@
 package fr.ibformation.projetFilRouge;
 import java.util.List;
 
-import fr.ibformation.projetFilRouge.bo.Salle;
-import fr.ibformation.projetFilRouge.services.SalleService;
-import fr.ibformation.projetFilRouge.services.SalleServiceImpl;
+import fr.ibformation.projetFilRouge.bo.Room;
+import fr.ibformation.projetFilRouge.services.RoomService;
+import fr.ibformation.projetFilRouge.services.RoomServiceImpl;
 
 public class Launcher {
 
 	public static void main(String[] args) {
 
-		SalleService salleService = new SalleServiceImpl();
+		RoomService roomService = new RoomServiceImpl();
 		
 		
 		  System.out.println("--------- create ----------");
-		  String messageReturned = salleService.create(new Salle(1, "Paté", 100, 150, "DolbySound"));
+		  String messageReturned = roomService.create(new Room(1, "Paté", 100, 150, "DolbySound"));
 		  System.out.println(messageReturned);
 		 
 		 
@@ -21,28 +21,26 @@ public class Launcher {
 
 
 		System.out.println("--------- update ----------");
-		Salle salleToUpdate = new Salle(1,"JeTaiCassé", 200, 250, "OuchMesOreilles");
-		String messageReturnedUpdate = salleService.update(salleToUpdate);
-		System.out.println(salleToUpdate);
+		Room roomToUpdate = new Room(1,"JeTaiCassé", 200, 250, "OuchMesOreilles");
+		String messageReturnedUpdate = roomService.update(roomToUpdate);
+		System.out.println(roomToUpdate);
 		System.out.println(messageReturnedUpdate);
 
 
 
 		System.out.println("----------findAll-----------");
 
-		List<Salle> sallesListFindAll = salleService.findAll();
+		List<Room> roomsListFindAll = roomService.findAll();
 
-		for (Salle salle : sallesListFindAll) {
-			System.out.println(salle);
+		for (Room room : roomsListFindAll) {
+			System.out.println(room);
 		}
 		
 		  System.out.println("--------- delete ----------");
-		  String messageReturnedDelete = salleService.delete(1);
+		  String messageReturnedDelete = roomService.delete(1);
 		  System.out.println(messageReturnedDelete);
 		 
-
-
-
+		 
 	}
 
 }

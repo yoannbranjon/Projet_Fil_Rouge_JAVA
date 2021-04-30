@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>A l'affiche</title>
+<title>Professional Space</title>
 </head>
 <body>
 
 	<c:import url="header.jsp">
-		<c:param name="title" value="aLaffiche" />
+		<c:param name="title" value="professionalSpace" />
 	</c:import>
 	
-	<h1>Eh eh ici c'est le "a l'affiche"<h1>
+	<h1>Eh eh ici c'est le professional space<h1>
 
 </body>
 </html>

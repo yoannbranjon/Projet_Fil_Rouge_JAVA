@@ -8,7 +8,7 @@
 </head>
 <body>
 	<c:import url="header.jsp">
-		<c:param name="title" value="accueil" />
+		<c:param name="title" value="home" />
 	</c:import>
 	
 	<h1>eh eh ceci est l'accueil</h1>

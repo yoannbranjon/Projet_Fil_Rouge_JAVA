@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>infosPratiques</title>
+<title>My Account</title>
 </head>
 <body>
 
 	<c:import url="header.jsp">
-		<c:param name="title" value="infosPratiques" />
+		<c:param name="title" value="myAccount" />
 	</c:import>
 	
-	<h1>Eh eh ici c'est les infos pratiques</h1>
+	<h1>Eh eh ici c'est mon compte<h1>
 
 </body>
 </html>

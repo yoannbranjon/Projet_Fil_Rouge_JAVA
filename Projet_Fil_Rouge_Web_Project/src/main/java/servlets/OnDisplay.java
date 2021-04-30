@@ -11,14 +11,14 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class InfosPratiques
  */
-@WebServlet("/aLaffiche")
-public class ALaffiche extends HttpServlet {
+@WebServlet("/onDisplay")
+public class OnDisplay extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public ALaffiche() {
+    public OnDisplay() {
         // TODO Auto-generated constructor stub
     }
 
@@ -27,7 +27,7 @@ public class ALaffiche extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/WEB-INF/aLaffiche.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/onDisplay.jsp").forward(request, response);
 	}
 
 	/**

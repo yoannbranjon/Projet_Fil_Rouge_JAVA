@@ -9,16 +9,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class InfosPratiques
+ * Servlet implementation class Home
  */
-@WebServlet("/monCompte")
-public class MonCompte extends HttpServlet {
+@WebServlet("/")
+public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public MonCompte() {
+    public Home() {
         // TODO Auto-generated constructor stub
     }
 
@@ -26,8 +26,7 @@ public class MonCompte extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/WEB-INF/monCompte.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 	}
 
 	/**
