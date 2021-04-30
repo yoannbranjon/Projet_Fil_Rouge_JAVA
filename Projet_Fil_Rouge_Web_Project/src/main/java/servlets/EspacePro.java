@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class InfosPratiques
@@ -34,7 +35,16 @@ public class EspacePro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		/*Pas de lien avec un bo pour l'instant*/
+		String firstName = request.getParameter("firstName"); 
+		String lastName = request.getParameter("lastName"); 
+		
+		HttpSession session = request.getSession();
+
+        session.setAttribute("firstName", firstName);
+        session.setAttribute("lastName", lastName);
+		
 		doGet(request, response);
 	}
 

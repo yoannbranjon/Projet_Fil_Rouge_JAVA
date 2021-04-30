@@ -12,7 +12,21 @@
 		<c:param name="title" value="espacePro" />
 	</c:import>
 	
-	<h1>Eh eh ici c'est l'espacePro</h1>
+	<form method="post" action="espacePro">
+    	<label for="firstName">First Name : </label>
+    	<input type="text" id="firstName" name="firstName" />
+    	
+    	<label for="lastName">Last Name : </label>
+    	<input type="text" id="lastName" name="lastName" />
+    	
+    	<input type="submit" />
+    </form>
+    
+    <c:if test="${ !empty sessionScope.firstName and !empty sessionScope.lastName }">
+    	<p>
+    		<c:out value="Bonjour, ${ sessionScope.firstName } ${ sessionScope.lastName }" />
+    	</p>
+    </c:if>
 
 </body>
 </html>
