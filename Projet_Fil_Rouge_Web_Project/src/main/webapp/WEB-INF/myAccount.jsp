@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Account</title>
+<title>Mon Compte</title>
 </head>
 <body>
 

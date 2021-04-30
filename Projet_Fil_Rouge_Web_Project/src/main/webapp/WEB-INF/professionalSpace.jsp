@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Professional Space</title>
+<title>Espace Pro</title>
 </head>
 <body>
 

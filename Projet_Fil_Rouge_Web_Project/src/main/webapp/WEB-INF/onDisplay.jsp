@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>On Display</title>
+<title>A l'affiche</title>
 </head>
 <body>
 
