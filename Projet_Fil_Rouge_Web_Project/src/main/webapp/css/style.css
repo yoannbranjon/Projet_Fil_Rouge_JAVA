@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 * {
     font-size: 1em;
     color: white;
@@ -17,69 +19,3 @@ h1 {
     color: darkgoldenrod;
 }
 
-/*
-*   HEADER
-*/
-
-header {
-    display: flex;
-    height : 9vh;
-    background-color: black;
-    border-bottom: 2px solid darkgoldenrod;
-    margin-bottom: 10px;
-}
-
-.app-header__menu {
-    margin: auto;
-}
-
-.app-header__menu nav {
-    display: inline-block ;
-}
-
-.app-header__menu a{
-    text-decoration: none;
-    padding-right: 30px;
-}
-
-.app-header__menu a:hover {
-    color: darkgoldenrod;
-}
-
-.app-header__logo {
-    height: 70px;
-}
-
-.app-header__compte {
-    display: inline-block;
-    margin : auto 0;
-    
-}
-
-.app-header__compte a{
-    text-decoration: none;
-    padding-right: 10px;
-}
-
-.app-header__compte a:hover {
-    color: darkgoldenrod;
-}
-
-
-/*
-*   FOOTER
-*/
-
-footer {
-   background-color: black;
-   position: relative;
-   border-top : 1px solid darkgoldenrod;
-}
-
-footer p {
-    text-align: center;
-}
-
-iframe {
-    border: none;
-}

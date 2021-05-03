@@ -6,34 +6,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import fr.ibformation.projetFilRouge.bo.Room;
 
-public class RoomDAOImpl implements RoomDAO {
+import fr.ibformation.projetFilRouge.bo.Film;
+
+public class FilmDAOImpl implements FilmDAO {
 
 	
 	/*
-	 *  METHODE POUR CREER UNE SALLE
+	 *  METHODE POUR CREER UN FILM
 	 */
 	
 	
 	@Override
-	public String create(Room room) {
+	public String create(Film film) {
 		// 1 - Connexion à la BDD
 		Connection connection = DAOUtil.getConnection();
 
 		// 2 - Préparation de la requete
 		// Fabrication de la requête
-		String request = "INSERT INTO rooms (name, sit_number, max_capacity, audio_system) VALUES(?,?,?,?) ";
+		String request = "INSERT INTO films (name, duration, film_version, display) VALUES(?,?,?,?) ";
 
 		try {
 			// Préparation
 			PreparedStatement prepareStmt = connection.prepareStatement(request);
 
 			// Mettre les paramètres
-			prepareStmt.setString(1, room.getName()); // 1er ?
-			prepareStmt.setInt(2, room.getSit_number()); // 2eme ?
-			prepareStmt.setInt(3, room.getMax_capacity());// 3eme ?
-			prepareStmt.setString(4, room.getAudio_system());// 4eme ?
+			prepareStmt.setString(1, film.getName()); // 1er ?
+			prepareStmt.setInt(2, film.getDuration()); // 2eme ?
+			prepareStmt.setString(3, film.getFilmVersion());// 3eme ?
+			prepareStmt.setString(4, film.getDisplay());// 4eme ?
 
 			prepareStmt.executeUpdate(); // Car on fait une modification
 
@@ -46,32 +47,32 @@ public class RoomDAOImpl implements RoomDAO {
 		}
 
 	}
-	
+
 	
 	/*
-	 * METHODE POUR MODIFIER UNE SALLE
+	 *  METHODE POUR MODIFIER UN FILMS
 	 */
 	
 	
 	@Override
-	public String update(Room roomToUpdate) {
+	public String update(Film filmToUpdate) {
 		// 1 - Connexion à la BDD
 		Connection connection = DAOUtil.getConnection();
 		
 		// 2 - Préparation de la requete
 		// Fabrication de la requête
-		String request = "UPDATE rooms SET name = ?, sit_number = ?, max_capacity = ?, audio_system = ? WHERE id = ?";
+		String request = "UPDATE films SET name = ?, duration = ?, film_version = ?, display = ? WHERE id = ?";
 		
 		try {
 			// Préparation
 			PreparedStatement prepareStmt = connection.prepareStatement(request);
 			
 			// Mettre les paramètres
-			prepareStmt.setString(1, roomToUpdate.getName()); //1er?
-			prepareStmt.setInt(2, roomToUpdate.getSit_number()); // 2eme ?
-			prepareStmt.setInt(3, roomToUpdate.getMax_capacity());// 3eme ?
-			prepareStmt.setString(4, roomToUpdate.getAudio_system());// 4eme ?
-			prepareStmt.setInt(5, roomToUpdate.getId()); // 5eme ?
+			prepareStmt.setString(1, filmToUpdate.getName()); //1er?
+			prepareStmt.setInt(2, filmToUpdate.getDuration()); // 2eme ?
+			prepareStmt.setString(3, filmToUpdate.getFilmVersion());// 3eme ?
+			prepareStmt.setString(4, filmToUpdate.getDisplay());// 4eme ?
+			prepareStmt.setInt(5, filmToUpdate.getId()); // 5eme ?
 			
 			prepareStmt.executeUpdate(); // Car on fait une modification
 			
@@ -84,22 +85,22 @@ public class RoomDAOImpl implements RoomDAO {
 		}
 	}
 	
-	
+
 	/*
-	 * METHODE POUR RECUPERER UN ID SALLE
+	 *  METHODE POUR RECUPERER UN ID FILMS
 	 */
 	
 	
 	@Override
-	public Room findById(int idCondition) {
-		Room room = null;
+	public Film findById(int idCondition) {
+		Film film = null;
 
 		// 1 - Connexion à la BDD
 		Connection connection = DAOUtil.getConnection();
 
 		// 2 - Préparation de la requete
 		// Fabrication de la requête
-		String request = "SELECT * FROM rooms WHERE id = ?";
+		String request = "SELECT * FROM films WHERE id = ?";
 
 		try {
 			// Préparation
@@ -113,38 +114,37 @@ public class RoomDAOImpl implements RoomDAO {
 
 			// Tant que j'ai des lignes de résultats
 			while(resultSet.next()) {
-				room = new Room(
+				film = new Film(
 						resultSet.getInt("id"),
 						resultSet.getString("name"),
-						resultSet.getInt("sit_number"),
-						resultSet.getInt("max_capacity"),
-						resultSet.getString("audio_system"));
+						resultSet.getInt("duration"),
+						resultSet.getString("film_version"),
+						resultSet.getString("display"));
 			}
-
 			connection.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return room;
+		return film;
 	}
-
+	
 	
 	/*
-	 *  METHODE POUR AFFICHER TOUTES LES SALLES
+	 *  METHODE POUR RECUPERER LA TOTALITE DES FILMS
 	 */
 	
 	
 	@Override
-	public List<Room> findAll() {
-		List<Room> roomsList = new ArrayList<Room>();
+	public List<Film> findAll() {
+		List<Film> filmsList = new ArrayList<Film>();
 		// 1 - Connexion à la BDD
 		Connection connection = DAOUtil.getConnection();
 
 		// 2 - Préparation de la requete
 		// Fabrication de la requête
-		String request = "SELECT * FROM rooms";
+		String request = "SELECT * FROM films";
 
 		try {
 			// Préparation
@@ -155,13 +155,13 @@ public class RoomDAOImpl implements RoomDAO {
 
 			// Tant que j'ai des lignes de résultats
 			while(resultSet.next()) {
-				Room room = new Room(
+				Film film = new Film(
 						resultSet.getInt("id"),
 						resultSet.getString("name"),
-						resultSet.getInt("sit_number"),
-						resultSet.getInt("max_capacity"),
-						resultSet.getString("audio_system"));
-				roomsList.add(room);
+						resultSet.getInt("duration"),
+						resultSet.getString("film_version"),
+						resultSet.getString("display"));
+				filmsList.add(film);
 			}
 
 			connection.close();
@@ -169,23 +169,22 @@ public class RoomDAOImpl implements RoomDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		return roomsList;
+		return filmsList;
 	}
-
+	
 	
 	/*
-	 * METHODE POUR SUPPRIMER UNE SALLE
+	 *  METHODE POUR SUPPRIMER UN FILM
 	 */
 	
-
+	
 	public String delete(int id) {
 		// 1 - Connexion à la BDD
 		Connection connection = DAOUtil.getConnection();
 
 		// 2 - Préparation de la requete
 		// Fabrication de la requête
-		String request = "DELETE FROM rooms WHERE id = ?";
+		String request = "DELETE FROM films WHERE id = ?";
 
 		try {
 			// Préparation
@@ -204,5 +203,5 @@ public class RoomDAOImpl implements RoomDAO {
 			return "La supression ne s'est pas bien passée";
 		}
 	}
-
+	
 }
